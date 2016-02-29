@@ -9,8 +9,15 @@
 % \usepackage{graphicx}                    % Enable pdflatex
 \usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
 \usepackage{geometry}
+\geometry{
+ a4paper,
+ %% total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ bottom=10mm,
+ }
 \usepackage{multicol}
-\textheight=700px                    % Saving trees ;-)
+%% \textheight=700px                    % Saving trees ;-)
 \usepackage{url}
 
 \frenchspacing              % Better looking spacings after periods
@@ -46,23 +53,16 @@
         \textit{#1}}               % Entry name (birth, address, etc.)
         \hspace{1.5em} #2 \par}    % Entry value
 
-\newcommand{\OrigSkillsEntry}[2]{\pagebreak[2]      % Same as \PersonalEntry
-        \noindent\hangindent=2em\hangafter=0 % Indentation
-        \parbox{\spacebox}{        % Box to align text
-        \textit{#1}}               % Entry name (birth, address, etc.)
-        \hspace{1.5em} \vspace{1.5em} \noindent \hangindent=2em \parbox{300px}{#2} \par}    % Entry value    
-        
-\newcommand{\SkillsEntry}[2]{\pagebreak[2]      % Same as \PersonalEntry
+\newcommand{\SkillsEntry}[2]{\pagebreak[2]    
         \noindent\hangindent=2em\hangafter=0 % Indentation
         \parbox{\spacebox}{        % Box to align text
         \textit{#1}}               % Entry name (birth, address etc.)
-        \hspace{1.5em} \vspace{1.5em}  \parbox{0.75\textwidth}{#2} \par}    % Entry value    
+        \hspace{1.5em} \vspace{1em}  \parbox{0.8\textwidth}{#2} \par}    % Entry value    
         
 \newcommand{\EducationEntry}[4]{\pagebreak[2]
         \noindent \textbf{#1} \hfill      % Study
         \colorbox{DarkGreen}{%
-            \parbox{6em}{%
-            \hfill\color{White}#2}} \par  % Duration
+            \hfill\color{White}#2} \par  % Duration
         \noindent \textit{#3} \par        % School
         \noindent\hangindent=2em\hangafter=0 \small #4 % Description
         \normalsize \par}
@@ -74,6 +74,11 @@
         \noindent\hangindent=2em\hangafter=0 \small #4 % Description
         \normalsize \par         \sepspace}
 
+\newcommand{\BottomLine}[1]{
+        \vfill\center\textit{#1}\par
+        } 
+
+
 %%% Begin Document
 %%% ------------------------------------------------------------
 \begin{document}
@@ -84,7 +89,6 @@
 %\end{wrapfigure}
 
 \MyName{Ilya Golshtein}
-\MySlogan{Curriculum Vitae}
 
 \sepspace
 
@@ -102,23 +106,32 @@
 %%% ------------------------------------------------------------
 \NewPart{Skills}{}
 
+\SkillsEntry{Strength}{Highload, DBMS}
+
+
+\SkillsEntry{Operation Systems} {UNIX (SCO, Linux, Solaris, Dynix) - system programmer and system administrator. Windows - application programmer and advanced user.}
+
 \SkillsEntry{Programming Languages}{C, C ++, SQL (PostgreSQL, MySQL, MS SQL, Oracle(Pro*C and PL/SQL)). 
-  Some experience and general knowledge about XSLT, Perl, Python, Lex, Yacc, x86 assembler, Prolog.
+  Some experience and general knowledge about XSLT, Lua, Perl, Python, Lex, Yacc, x86 assembler, Prolog.
 }
 
-\SkillsEntry{Operation Systems} {UNIX (SCO, Linux, Solaris, Dynix) - system programmer and system administrator. Windows - application programmer and advanced user.
-}
+%% \SkillsEntry{Libraries and frameworks} {ZeroMQ, Kafka, libevent}
+
+\SkillsEntry{DBMS} {SQL: PostgreSQL, MySQL, MS SQL, Oracle(Pro*C and PL/SQL), \\ NoSQL: Tarantool, TokyoCabinet}
+
+\SkillsEntry{Software} {SVN, Jira, Confluence, emacs}  
+
 
 
 %%% Work experience
 %%% ------------------------------------------------------------
 \NewPart{Professional experience}{}
 
-\WorkEntry{Programmer, Architect, Project manager.}{2007-present}{Phorm.}{
+\WorkEntry{Programmer, Architect, Project manager.}{2007-present}{Phorm}{
 \begin{itemize}  \itemsep0em
-\item  Developing WebIndex project as project manager, architect and programmer. The product contains WebCrawler, which handles many thousands URLs per second, to obtain content from Web pages, and some processing, including collaborative filtering, to enrich user profiles.
+\item  Developing WebIndex project as project manager, architect and programmer. The product contains WebCrawler, which handles many thousands URLs per second, stores this data and does some additional processing. WebIndex uses collaborative filtering and machine learning techniques to enrich user profiles. 
 \item Developing some modules of DataCapture project as a programmer. The system captures HTTP data from the wire to create user profiles.
-\item Developing Network Based Options Manager as project manager, architect and a programmer. The product analyzes Radius and DHCP data flows from ISPs to control how Phorm software should process traffic belongs to different customers.
+\item Developing Network Based Options Manager as project manager, architect and a programmer. The product analyzes Radius and DHCP data flows from ISPs to control how Phorm software should process traffic that belongs to different customers.
 \item Team lead for DataCapture project
 \end{itemize}
 }
@@ -126,7 +139,7 @@
 
 \WorkEntry{Programmer}{2004-2007}{1C}{
 \begin{itemize}\itemsep0em
-\item Porting 1C:Enterprise to Linux (MS Visual Studio and gcc features settling, ATL replacement, OS specific things workaround).
+\item Porting 1C:Enterprise to Linux (substituting MS Visual Studio specific features by gcc features, ATL replacement, OS specific things workaround).
 \item Developing 1C:Enterprise platform core (Lock Manager, PostgreSQL interoperability).
 \item Creating Linux build environment.
 \end{itemize}
@@ -171,7 +184,7 @@ Created and maintained a FreeBSD-based Internet-access server.
 %%% ------------------------------------------------------------
 \NewPart{Education}{}
 
-\EducationEntry{MSc. and BSc.}{1989-1995}{MIREA (Moscow State Institute of Radio-Engineering, Electronics and Automation (Technical University))}{Descriptive text goes here. In order to maintain a stylish look, try to fill this description with a few lines of text. Do the same for the other entries in the education section.}
+\EducationEntry{MSc. and BSc.}{1989-1995}{MIREA (Moscow State Institute of Radio-Engineering, Electronics and Automation (Technical University))}{\textit{Department}: Cybernetics, \textit{Speciality}: Applied Mathematics}
 \sepspace
 
 \EducationEntry{Evening Physical and Mathematical school}{1987-1989}{MIEM (Moscow State Institute of Electronics and Mathematics)}{Completed with mark of distinction.}
@@ -183,5 +196,10 @@ Created and maintained a FreeBSD-based Internet-access server.
 \SkillsEntry{Languages}{Russian (native) 
    English (upper intermediate)}
 \SkillsEntry{Family status}{married}
+
+
+
+\BottomLine{Master version of this \LaTeX \ is https://github.com/ilejn/ilejncv }
+
 
 \end{document}
