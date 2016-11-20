@@ -34,7 +34,7 @@
 %%% Macros
 %%% ------------------------------------------------------------
 \newlength{\spacebox}
-\settowidth{\spacebox}{8888888888}          % Box to align text
+\settowidth{\spacebox}{88888888888}          % Box to align text
 \newcommand{\sepspace}{\vspace*{1em}}       % Vertical space macro
 
 \newcommand{\MyName}[1]{ % Name
@@ -57,7 +57,7 @@
         \noindent\hangindent=2em\hangafter=0 % Indentation
         \parbox{\spacebox}{        % Box to align text
         \textit{#1}}               % Entry name (birth, address etc.)
-        \hspace{1.5em} \vspace{1em}  \parbox{0.8\textwidth}{#2} \par}    % Entry value    
+        \hspace{1.5em} \vspace{1em}  \parbox{0.77\textwidth}{#2} \par}    % Entry value    
         
 \newcommand{\EducationEntry}[4]{\pagebreak[2]
         \noindent \textbf{#1} \hfill      % Study
@@ -89,7 +89,7 @@
 %\end{wrapfigure}
 
 \MyName{Ilya Golshtein}
-
+\MySlogan{Software Architect, Team Lead, C++ developer}
 \sepspace
 
 
@@ -106,16 +106,16 @@
 %%% ------------------------------------------------------------
 \NewPart{Skills}{}
 
-\SkillsEntry{Strength}{Highload, DBMS}
+\SkillsEntry{Key}{Backend, Highload, DBMS}
 
 
-\SkillsEntry{Operation Systems} {UNIX (SCO, Linux, Solaris, Dynix) - system programmer and system administrator. Windows - application programmer and advanced user.}
+\SkillsEntry{Operation Systems} {UNIX, Linux (Ubuntu, RHEL) - system programmer and system administrator. Windows - application programmer and advanced user}
 
-\SkillsEntry{Programming Languages}{C, C ++, SQL (PostgreSQL, MySQL, MS SQL, Oracle(Pro*C and PL/SQL)). 
-  Some experience and general knowledge about XSLT, Lua, Perl, Python, Lex, Yacc, x86 assembler, Prolog.
+\SkillsEntry{Programming Languages}{C, C++. 
+  Some experience and general knowledge about XSLT, Lua, Python, Perl, Lex, Yacc, x86 assembler, Prolog
 }
 
-%% \SkillsEntry{Libraries and frameworks} {ZeroMQ, Kafka, libevent}
+\SkillsEntry{Libs and frameworks} {ZeroMQ, Kafka, libevent}
 
 \SkillsEntry{DBMS} {SQL: PostgreSQL, MySQL, MS SQL, Oracle(Pro*C and PL/SQL), \\ NoSQL: Tarantool, TokyoCabinet}
 
@@ -127,28 +127,33 @@
 %%% ------------------------------------------------------------
 \NewPart{Professional experience}{}
 
-\WorkEntry{Programmer, Architect, Project manager.}{2007-present}{Phorm}{
+\WorkEntry{Software Architect}{2016(April)-present}{IPONWEB}{
 \begin{itemize}  \itemsep0em
-\item  Developing WebIndex project as project manager, architect and programmer. The product contains WebCrawler, which handles many thousands URLs per second, stores this data and does some additional processing. WebIndex uses collaborative filtering and machine learning techniques to enrich user profiles. 
-\item Developing some modules of DataCapture project as a programmer. The system captures HTTP data from the wire to create user profiles.
-\item Developing Network Based Options Manager as project manager, architect and a programmer. The product analyzes Radius and DHCP data flows from ISPs to control how Phorm software should process traffic that belongs to different customers.
-\item Team lead for DataCapture project
+\item  Trying to improve online part of AdServing platform, mainly database side. Tweaking TokuMX to reduce overhead caused be multitude of client sessions.
+\end{itemize}
+}
+\sepspace
+
+\WorkEntry{Programmer, Architect, Project manager}{2007-2016(March)}{Phorm}{
+\begin{itemize}  \itemsep0em
+\item  Developing WebIndex project as a project manager, an architect and a programmer. The product contains Web Crawler, which handles many thousands URLs per second, stores retrieved data and does some additional processing. WebIndex uses collaborative filtering and machine learning techniques to enrich user profiles. Besides extrimely high performance, it is based on gracefull degradation principles.
+\item Developing Network Based Options Manager as a project manager, an architect and a programmer. The product analyzes Radius and DHCP intraISP dataflows to control how Phorm software should process traffic that belongs to different customers. Currently we are porting NBO Manager to Tarantool. 
+\item Developed some modules of DataCapture project as a programmer. The system captures HTTP data from the wire to create user profiles. Team Lead for DataCapture project.
 \end{itemize}
 }
 \sepspace
 
 \WorkEntry{Programmer}{2004-2007}{1C}{
 \begin{itemize}\itemsep0em
-\item Porting 1C:Enterprise to Linux (substituting MS Visual Studio specific features by gcc features, ATL replacement, OS specific things workaround).
-\item Developing 1C:Enterprise platform core (Lock Manager, PostgreSQL interoperability).
-\item Creating Linux build environment.
+\item Ported 1C:Enterprise to Linux (substituting MS Visual Studio specific features by gcc features, ATL replacement, OS specific things workaround).
+\item Participated in 1C:Enterprise core development (Lock Manager, PostgreSQL interoperability).
 \end{itemize}
 1C:Enterprise 8.1 released in 2006.
 }
 
-\WorkEntry{Programmer, Team Leader}{2002-2004}{Deutsche Bank}{
+\WorkEntry{Programmer, Team Lead}{2002-2004}{Deutsche Bank}{
 \begin{itemize}\itemsep0em
-\item  Maintenance and feature development of Execution System Barracuda for European stock markets. Besided transport and order routing functions, the system provides some price improvement techniques.
+\item  Maintenance and feature development of Execution System Barracuda for European stock markets. Besides transport and order routing functions, the system provides some price improvement techniques.
 \end{itemize}
 System operates in Solaris environment, uses Oracle, MQ/Series, In Memory DB TimesTen.
 Responsible for system core.
@@ -156,7 +161,7 @@ Participate in requirements analysis and planning.
 Review code written by all team members.
 }
 
-\WorkEntry{Programmer, Team Leader}{1995-2002}{Comtech-N / Main Computer Center of the Air Transport Department}{
+\WorkEntry{Programmer, Team Lead}{1995-2002}{Comtech-N / Main Computer Center of the Air Transport Department}{
 \begin{itemize}\itemsep0em
 \item Participated in "Sirena-2000" project  (computerized reservation system).
 \item Developed some internlal modules using Oracle precompiler Pro*C in UNIX environment. 
@@ -167,12 +172,11 @@ Sirena-2000 is a major russian reservation system since 1998.
 \end{itemize}
 System operates in UNIX environment and uses Oracle RDBMS.
 Main programming language is C; PL/SQL is also used.
-Created and maintained a FreeBSD-based Internet-access server.
 }
 
 \WorkEntry{Programmer}{1993-1995}{Ocrus}{
 \begin{itemize}\itemsep0em
-\item Developing interface modules between scanners and an application program. a deep investigation of scanner protocols was performed using debuggers and disassemblers.
+\item Developing interface modules between scanners and an application program. A deep investigation of scanner protocols was performed using debuggers and disassemblers.
 \item Participated in development of the "Autor for DOS" and "Autor  for  Windows" Optical Character  Recognition systems; created modules for determination and removing underlinings, word detection, text type determination, limited auto-segmentation, etc.
 \item Participated in creation of an autosegmentator for Samsung Electronics corp.
 \item Supervised a project on porting "Autor for Windows" program to a transputer network (in cooperation with KAMI Science company). Results were represented on WindowsExpo'95 exhibition in Moscow.  
@@ -193,10 +197,13 @@ Created and maintained a FreeBSD-based Internet-access server.
 %%% ------------------------------------------------------------
 \NewPart{Other}{}
 
-\SkillsEntry{Languages}{Russian (native) 
-   English (upper intermediate)}
-\SkillsEntry{Family status}{married}
 
+\SkillsEntry{Certificates}{Math and Python for data analysis by Moscow Institute of Physics and Technology on Coursera. Earned on April 6, 2016. \\
+  Supervized learning by Moscow Institute of Physics and Technology on Coursera. Earned on May 19, 2016. \\
+  Unsupervized learning by Moscow Institute of Physics and Technology on Coursera. Earned on July 23, 2016.}
+
+\SkillsEntry{Languages}{Russian (native)  \\
+   English (upper intermediate)}
 
 
 \BottomLine{Master version of this \LaTeX \ is https://github.com/ilejn/ilejncv }
